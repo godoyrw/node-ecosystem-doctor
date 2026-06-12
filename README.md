@@ -242,6 +242,70 @@ Depois disso, abra um Pull Request.
 
 ---
 
+## 🚀 Versionamento e Releases
+
+O Node Ecosystem Doctor segue o padrão **Semantic Versioning (SemVer)** para gerenciamento de versões.
+
+### Estrutura de versões
+
+| Tipo | Exemplo | Descrição |
+|--------|----------|------------|
+| Patch | v1.0.1 | Correções de bugs e melhorias sem impacto funcional |
+| Minor | v1.1.0 | Novas funcionalidades compatíveis com versões anteriores |
+| Major | v2.0.0 | Alterações incompatíveis (breaking changes) |
+
+### Fluxo de Release
+
+1. Desenvolva e valide as alterações na branch `development`
+2. Realize o merge para a branch `main`
+3. Crie uma nova tag de versão
+4. Publique a release no GitHub
+
+### Exemplo de Publicação
+
+```bash
+git checkout main
+git merge development
+
+git tag -a v1.1.0 -m "Novas verificações de runtime"
+
+git push origin main
+git push origin v1.1.0
+```
+
+### Consultar versões disponíveis
+
+```bash
+git tag
+```
+
+### Sincronizar tags remotas
+
+```bash
+git fetch --tags
+```
+
+### Histórico de Releases
+
+As versões publicadas podem ser consultadas na seção Releases do repositório:
+
+https://github.com/godoyrw/node-ecosystem-doctor/releases
+
+---
+
+**Convenção adotada:**
+
+```text
+v1.0.0
+v1.0.1
+v1.1.0
+v2.0.0
+```
+
+Todas as versões são identificadas com o prefixo `v`, seguindo as práticas adotadas pelos principais projetos Open Source do ecossistema Node.js.
+
+---
+
 ## 🔒 Segurança
 
 Encontrou uma vulnerabilidade?
