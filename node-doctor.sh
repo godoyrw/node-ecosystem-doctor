@@ -131,20 +131,32 @@ spinner_stop() {
 draw_bar() {
   local label=$1
   local value=$2
-  local filled=$(( value / 2 ))
-  local empty=$(( 50 - filled ))
 
-  # cor da barra conforme score
+  local width=35
+  local filled=$(( value * width / 100 ))
+  local empty=$(( width - filled ))
+
   local color
-  if   (( value >= 90 )); then color=$GREEN
-  elif (( value >= 60 )); then color=$YELLOW
-  else                         color=$RED
+  if (( value >= 90 )); then
+    color=$GREEN
+  elif (( value >= 60 )); then
+    color=$YELLOW
+  else
+    color=$RED
   fi
 
   printf "  %-10s ${GRAY}[${NC}${color}" "$label"
-  for ((i=0; i<filled; i++)); do printf "█"; done
-  echo -ne "${NC}${GRAY}"
-  for ((i=0; i<empty;  i++)); do printf "░"; done
+
+  for ((i=0; i<filled; i++)); do
+    printf "█"
+  done
+
+  printf "${NC}${GRAY}"
+
+  for ((i=0; i<empty; i++)); do
+    printf "░"
+  done
+
   printf "${NC}${GRAY}]${NC} ${color}%3d%%${NC}\n" "$value"
 }
 
@@ -398,9 +410,9 @@ else
 fi
 
 # ----------------------------------------------------------------
-#  NETWORK
+#  CONECTIVIDADE
 # ----------------------------------------------------------------
-print_section "CONNECTIVITY"
+print_section "CONECTIVIDADE"
 
 spinner_start "Testando registry.npmjs.org..."
 sleep 0.5
@@ -492,7 +504,7 @@ else
 fi
 
 # ================================================================
-#  JSON OUTPUT
+#  SAÍDA EM JSON
 # ================================================================
 
 if [ "$JSON_OUTPUT" = true ]; then
@@ -550,17 +562,17 @@ if [ "$JSON_OUTPUT" = true ]; then
 fi
 
 # ================================================================
-#  HEALTH GRAPH
+#  GRÁFICO DE SAÚDE DO ECOSSISTEMA
 # ================================================================
 
-print_section "ENVIRONMENT HEALTH GRAPH"
+print_section "GRÁFICO DE SAÚDE DO ECOSSISTEMA"
 
 for k in NODE NPM NVM YARN PNPM BUN NETWORK CACHE; do
   draw_bar "$k" "${SCORE[$k]}"
 done
 
 # ================================================================
-#  FINAL SCORE
+#  RESULTADO FINAL
 # ================================================================
 
 TOTAL=0; COUNT=0
@@ -570,7 +582,7 @@ for k in NODE NPM NVM YARN PNPM BUN NETWORK CACHE; do
 done
 AVG=$(( TOTAL / COUNT ))
 
-print_section "FINAL SCORE"
+print_section "RESULTADO FINAL"
 
 if   (( AVG >= 95 )); then
   STATUS="${GREEN}${BOLD}Ambiente impecável 🚀${NC}"
@@ -583,38 +595,14 @@ else
 fi
 
 echo -e "  Status: $STATUS"
+echo -e "  Score Final: ${CYAN}${BOLD}${AVG}/100${NC}"
 echo ""
 
-# Tabela de resumo
-echo -e "  ${GRAY}┌─────────────┬────────┬──────────────────────────────────────┐${NC}"
-echo -e "  ${GRAY}│${NC} ${BOLD}Componente   ${GRAY}│ Score  │ Observação${NC}                           ${GRAY}│${NC}"
-echo -e "  ${GRAY}├─────────────┼────────┼──────────────────────────────────────┤${NC}"
-
-for k in NODE NPM NVM YARN PNPM BUN NETWORK CACHE; do
-  v="${SCORE[$k]}"
-  note="${SCORE_NOTE[$k]:-—}"
-  if   (( v >= 90 )); then score_colored="${GREEN}${v}%${NC}"
-  elif (( v >= 60 )); then score_colored="${YELLOW}${v}%${NC}"
-  else                     score_colored="${RED}${v}%${NC}"; fi
-
-  # trunca nota se muito longa
-  note_trunc="${note:0:36}"
-  [ ${#note} -gt 36 ] && note_trunc="${note_trunc}…"
-
-  printf "  ${GRAY}│${NC} %-13s ${GRAY}│${NC} " "$k"
-  echo -ne "${score_colored}"
-  printf "  ${GRAY}│${NC} %-37s ${GRAY}│${NC}\n" "$note_trunc"
-done
-
-echo -e "  ${GRAY}└─────────────┴────────┴──────────────────────────────────────┘${NC}"
-echo ""
-echo -e "  Health Score: ${CYAN}${BOLD}${AVG}/100${NC}"
-
 # ================================================================
-#  RECOMMENDATIONS
+#  RECOMENDAÇÕES
 # ================================================================
 
-print_section "RECOMMENDATIONS"
+print_section "RECOMENDAÇÕES"
 
 HAS_RECS=false
 

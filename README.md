@@ -1,8 +1,18 @@
 <p align="center">
   <img src="./assets/banner.png" alt="Node Ecosystem Doctor">
 </p>
-
-<h1 align="center" style="margin: 24px 0 16px;font-weight: 600;line-height: 1.25;overflow: hidden;text-indent: 8000px;height: 0 !important;">🩺 Node Ecosystem Doctor</h1>
+<style>
+  .markdown-body h1.ned {
+    margin: -20px 0 16px 0 !important;
+    font-weight: 600!important;
+    line-height: 1.25!important;
+    overflow: hidden!important;
+    text-indent: -8000px!important;
+    height: 0 !important;
+    aling: center;
+  }
+</style>
+<h1 class="ned">🩺 Node Ecosystem Doctor</h1>
 
 <p align="center">
   <img src="https://img.shields.io/github/license/godoyrw/node-ecosystem-doctor">
@@ -58,11 +68,11 @@ Receba uma avaliação visual da saúde do ambiente:
 
 ```text
 NODE      ████████████████████████████████ 100%
-NPM       ████████████████████████████████ 100%
-NVM       ████████████████████████████████ 100%
-PNPM      ████████████████████████████████ 100%
+NPM       ██████████████████████████████   98%
+NVM       ███████████████████████████      95%
+PNPM      ███████████████████              70%
 
-Health Score: 98/100
+Health Score: 91/100
 Status: Environment Excellent 🚀
 ```
 
