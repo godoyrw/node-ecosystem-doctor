@@ -2,11 +2,7 @@
   <img src="./assets/banner.png" alt="Node Ecosystem Doctor">
 </p>
 
-<h1 align="center">🩺 Node Ecosystem Doctor</h1>
-
-<p align="center">
-  Diagnose • Analyze • Repair • Optimize
-</p>
+<h1 align="center" style="margin: 24px 0 16px;font-weight: 600;line-height: 1.25;overflow: hidden;text-indent: 8000px;height: 0 !important;">🩺 Node Ecosystem Doctor</h1>
 
 <p align="center">
   <img src="https://img.shields.io/github/license/godoyrw/node-ecosystem-doctor">
@@ -15,9 +11,9 @@
   <img src="https://img.shields.io/github/last-commit/godoyrw/node-ecosystem-doctor">
 </p>
 
-**Node Ecosystem Doctor** é uma ferramenta de diagnóstico avançado para desenvolvedores, DevOps e equipes de engenharia que desejam validar rapidamente a saúde de seus ambientes Node.js.
+**Node Ecosystem Doctor** é uma ferramenta avançada de diagnóstico, auditoria e otimização para ambientes Node.js, criada para desenvolvedores, profissionais DevOps, SREs e equipes de engenharia de software que buscam garantir ambientes consistentes, atualizados e prontos para produção.
 
-Detecte inconsistências, avalie versões, valide conectividade, identifique gargalos e execute correções automaticamente.
+A ferramenta realiza uma análise completa do ecossistema Node.js, validando versões, dependências, gerenciadores de pacotes, conectividade com registries, integridade de cache e configurações críticas do ambiente. Além de identificar inconsistências, gargalos e potenciais problemas operacionais, o Node Ecosystem Doctor fornece recomendações inteligentes e pode executar correções automatizadas para acelerar a resolução de falhas e reduzir o tempo gasto com troubleshooting.
 
 </div>
 

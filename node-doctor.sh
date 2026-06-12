@@ -79,7 +79,7 @@ print_banner() {
   if [ "$MINIMAL" = true ]; then return; fi
   echo -e "${CYAN}"
   echo "  ╔══════════════════════════════════════════════════════╗"
-  echo "  ║          NODE ECOSYSTEM DOCTOR  v2.0                 ║"
+  echo "  ║          NODE ECOSYSTEM DOCTOR  v1.0.0               ║"
   echo "  ║    Diagnóstico · Sugestões · Correção Interativa     ║"
   echo "  ║    ---------------------------------------------     ║"
   echo "  ║    Autor: Roberto Godoy · 2026                       ║"
@@ -504,7 +504,7 @@ if [ "$JSON_OUTPUT" = true ]; then
   AVG=$(( TOTAL / COUNT ))
 
   echo "{"
-  echo "  \"version\": \"2.0\","
+  echo "  \"version\": \"1.0.0\","
   echo "  \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%SZ)\","
   echo "  \"score\": $AVG,"
   echo "  \"components\": {"

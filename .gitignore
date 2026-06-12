@@ -1,0 +1,41 @@
+# Logs
+
+*.log
+
+# Temporary files
+
+*.tmp
+*.temp
+
+# Editor
+
+.vscode/
+.idea/
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Backup files
+
+*.bak
+*.old
+
+# Shell
+
+*.swp
+
+# Reports
+
+reports/
+output/
+
+# Local tests
+
+test-output/
+
+# Environment
+
+.env
+.env.local
