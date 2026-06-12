@@ -47,7 +47,12 @@ else
 fi
 
 # ---------- Log setup ----------
-LOG_FILE="logs/node-doctor-$(date +%Y%m%d-%H%M%S).log"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+LOG_DIR="${SCRIPT_DIR}/logs"
+mkdir -p "$LOG_DIR"
+
+LOG_FILE="${LOG_DIR}/node-doctor-$(date +%Y%m%d-%H%M%S).log"
 
 log() {
   if [ "$LOG_ENABLED" = true ] && [ "$JSON_OUTPUT" = false ]; then
