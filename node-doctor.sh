@@ -47,7 +47,7 @@ else
 fi
 
 # ---------- Log setup ----------
-LOG_FILE="/tmp/node-doctor-$(date +%Y%m%d-%H%M%S).log"
+LOG_FILE="logs/node-doctor-$(date +%Y%m%d-%H%M%S).log"
 
 log() {
   if [ "$LOG_ENABLED" = true ] && [ "$JSON_OUTPUT" = false ]; then
